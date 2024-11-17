@@ -21,7 +21,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build the Docker image
-      run: docker build -t ghcr.io/sufanaccount/ue19-lab-05:latest .
+      run: docker build -t ghcr.io/${{ github.repository_owner | toLower }}/ue19-lab-05:latest .
 
     - name: Push the Docker image
-      run: docker push ghcr.io/sufanaccount/ue19-lab-05:latest
+      run: docker push ghcr.io/${{ github.repository_owner | toLower }}/ue19-lab-05:latest
