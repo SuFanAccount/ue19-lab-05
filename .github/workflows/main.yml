@@ -31,6 +31,9 @@ jobs:
     - name: Build the Docker image
       run: docker build -t ghcr.io/${{ env.lowercase_owner }}/ue19-lab-05:latest .
 
+    - name: Wait before retrying Trivy scan
+      run: sleep 60  # Attend 60 secondes
+      
     - name: Scan the Docker image with Trivy
       uses: aquasecurity/trivy-action@master
       with:
